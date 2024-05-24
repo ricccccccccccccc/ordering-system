@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="assets/img/ico.ico" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Use Jquery for ajax request -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <title>Food Ordering System</title>
+  </head>
+  <body>
+    <!-- Optional JavaScript; choose one of the two! -->
+    <div class="container">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <button class="navbar-brand font-fam" type="button"><img src="assets/img/foodmanda.png" class="img-fluid rounded-start m-r" alt="...">Food Mandin</button>
+          </div>
+        </div>
+      </nav>
+      <h3 class="cnter">Orders</h3>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Item</th>
+            <th scope="col" width="10%">Qty</th>
+            <th scope="col">Price</th>
+            <th scope="col" width="9%">Status</th>
+            <th scope="col">Order Date</th>
+            <th scope="col" width="10%">Action</th>
+          </tr>
+        </thead>
+        <tbody class="t-body">
+          
+        </tbody>
+      </table>
+      </div>
+    </div>
+     <footer class="custom-footer">
+      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+      </ul>
+      <p class="text-center text-muted">© 2022 Company, Inc</p>
+    </footer>
+    </div>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
+  <script type="text/javascript">
+    function goBack() {   
+             window.history.back();
+          }
+
+    $(document).ready(function() {
+          //fetch record.
+          $.ajax({
+              url: "f_file_log/",
+              type: "GET",
+              dataType: "json",
+              success: function(t) {
+                  // Handle success
+                  var e = $(".t-body");
+                  var total = 0; 
+                  if (t.length === 0) {
+                     e.append('<tr><td colspan="5" class="nrf">No order yet</td></tr>');
+                  }else{
+                  $.each(t, (function(t, a) {
+                  var d = 
+                  `<tr>\n              
+                  <td class="res">${a.prodtitle}</td>\n                    
+                  <td>${a.qty}</td>\n
+                  <td class="res price">${a.subtotal}</td>\n     
+                  <td class="subtotal"><div class="${a.status == 'Pending' ? 'Pending' : a.status == 'Cancelled' ? 'Cancelled' : ''}">${a.status}</div></td>\n  
+                  <td class="subtotal">${a.orderdate}</td>\n  
+                  <td><button class="btn btn-danger update-button" data-record-id="${a.ID}">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+                        <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+                      </svg>
+                  Cancel</button>
+                  </td>\n                                       
+                  </tr>`;
+                  e.append(d);
+                  total += parseFloat(a.subtotal);
+                }))
+                  // Update the total span
+                  $("#total").text(total.toFixed(2));
+                }
+              },
+              error: function(xhr, status, error) {
+                  // Handle error
+                  console.error('Error adding product to cart:', status, error);
+              }
+          });
+
+          //Cancelling order status
+          $(document).on('click', '.update-button', function() {
+            if (confirm('Are you sure you want to cancel the order?')) {
+                    alert('Order Cancelled.');
+                    var t = $(this).data("record-id"),
+                      e = $(this).closest("tr"),
+                      n = {
+                        status: 'Cancelled'
+                      };
+                    $.ajax({
+                      url: "u_file_log/",
+                      type: "POST",
+                      data: {
+                        id: t,
+                        updatedData: n
+                      },
+                      success: function(t) {
+                        window.location.href = "http://localhost/orderingapp/pages/order-all/";
+                      },
+                      error: function(t) {
+                        console.error("Error saving changes:", t)
+                      }
+                    })
+            } else {
+                    alert('Order not cancelled.');
+            }
+            
+          })
+
+  });
+  </script>
+</html>

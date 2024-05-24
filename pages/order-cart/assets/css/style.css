@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+h1, .form-control, h3, table, .res {
+	font-family: 'Poppins';
+}
+h3 {
+	color: #b389ed;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.font-fam {
+    font-family: 'Poppins';
+    font-size: 25px;
+    width: 70px;
+    color: #b389ed;
+    border: none;
+    background: white;
+    font-weight: bold;
+}
+.m-r {
+    margin-right: 10px;
+}
+body {
+	background-image: url('https://www.infinityfree.com/images/bg-hero.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+   	background-repeat: no-repeat;
+   	background-color: var(--body_background);
+}
+.card {
+	padding: 20px;
+	margin: 0 auto;
+	margin-top: 4rem;
+	border-radius: 10px;
+}
+.m-t {
+	margin-top: 20px;
+}
+.btn-s {
+    font-family: var(--font-heading);
+    margin-right: 0;
+    background: #D6BCFA;
+    border-style: none;
+    color: #2D3748;
+    outline: 0;
+    border-radius: 5px;
+    padding: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+.svg-s {
+    margin-top: -8px;
+}
+.h-s {
+    height: 160px;
+}
+.n-s {
+    margin-top: 15px;
+}
+.custom-footer {
+    margin-top: 100px;
+}
+.added-to-cart {
+    background: #d5d58f;
+}
+.m-l {
+    margin-left: -12px;
+    margin-top: 20px;
+}
+.imgpath {
+    display: none;
+}
+.chev {
+    margin-top: -2px;
+    font-weight: bold;
+}
+.m-ts {
+    margin-top: 4px;
+}
+.nrf {
+    text-align: center;
+}
+.i-w {
+    width: 70px;
+}
+.res {
+    margin-top: 30px;
+}
+.saa {
+    font-family: var(--font-heading);
+    margin-right: 0;
+    background: yellow;
+    border-style: none;
+    color: #2D3748;
+    outline: 0;
+    border-radius: 5px;
+    padding: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+.saaa {
+    font-family: var(--font-heading);
+    margin-right: 0;
+    background: green;
+    border-style: none;
+    color: white;
+    outline: 0;
+    border-radius: 5px;
+    padding: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
