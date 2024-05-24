@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="assets/img/ico.ico" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Use Jquery for ajax request -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <title>Food Ordering System</title>
+  </head>
+  <body>
+    <!-- Optional JavaScript; choose one of the two! -->
+    <div class="container">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <button class="navbar-brand font-fam" type="button"><img src="assets/img/foodmanda.png" class="img-fluid rounded-start m-r" alt="...">Food Mandin</button>
+            <div class="ms-auto">
+            <form class="d-flex" role="search">
+              <a class="btn-s" type="submit" href="http://localhost/orderingapp/pages/order-cart/">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-cart4 svg-s" viewBox="0 0 16 16">
+                  <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>
+                </svg>
+                <span id="log-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger m-l">
+                  0
+                </span>
+              </a>
+            </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    <h3 class="text-center">Food Ordering WEb</h3>
+      <div class="row g-3">
+        <div class="col-md-2">
+          <img src="assets/img/fc.jpg" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-4">
+          <div class="card-body product">
+            <p class="imgpath">assets/img/fc.jpg</p>
+            <h5 class="card-title product-title">Fried Chicken</h5>
+            <p class="card-text">The perfect fried chicken is crispy on the outside, with a flavourful crust.</p>
+            <p class="card-text product-price" style="display: inline-block; margin-right: 215px;"><strong>₱180</strong></p>
+            <div class="text-end" style="display: inline-block;">
+              <button class="add-to-cart btn-s">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-cart4 svg-s" viewBox="0 0 16 16">
+                  <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>
+                </svg>
+              Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <img src="assets/img/spag.jpg" class="img-fluid rounded-start h-s" alt="...">
+        </div>
+        <div class="col-md-4">
+          <div class="card-body product">
+            <p class="imgpath">assets/img/spag.jpg</p>
+            <h5 class="card-title product-title" id="title">Spaghetti</h5>
+            <p class="card-text">This Filipino Spaghetti is every kid's favorite! Spaghetti, hot dogs, tomato sauce, onions, garlic, and seasonings.</p>
+            <p class="card-text product-price" style="display: inline-block; margin-right: 215px;"><strong>₱110</strong></p>
+            <div class="text-end" style="display: inline-block;">
+              <button class="add-to-cart btn-s">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-cart4 svg-s" viewBox="0 0 16 16">
+                  <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>
+                </svg>
+              Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <img src="assets/img/halohalo.png" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-4">
+          <div class="card-body product">
+            <p class="imgpath">assets/img/halohalo.png</p>
+            <h5 class="card-title product-title">Halo-Halo</h5>
+            <p class="card-text"> Halo-halo means "mix mix" in Tagalog and that is what this traditional Filipino shaved ice dessert will make you do with every bite.</p>
+            <p class="card-text product-price" style="display: inline-block; margin-right: 215px;"><strong>₱100</strong></p>
+            <div class="text-end" style="display: inline-block;">
+              <button class="add-to-cart btn-s">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-cart4 svg-s" viewBox="0 0 16 16">
+                  <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>
+                </svg>
+              Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <img src="assets/img/noodles.jpg" class="img-fluid rounded-start n-s" alt="...">
+        </div>
+        <div class="col-md-4">
+          <div class="card-body product">
+            <p class="imgpath">assets/img/noodles.jpg</p>
+            <h5 class="card-title product-title">Noodles</h5>
+            <p class="card-text">Noodles are a type of food made from unleavened dough which is either rolled flat and cut, stretched, or extruded, into long strips or strings.</p>
+            <p class="card-text product-price" style="display: inline-block; margin-right: 215px;"><strong>₱205</strong></p>
+             <div class="text-end" style="display: inline-block;">
+              <button class="add-to-cart btn-s">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-cart4 svg-s" viewBox="0 0 16 16">
+                  <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>
+                </svg>
+              Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+     <footer class="custom-footer">
+      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+      </ul>
+      <p class="text-center text-muted">© 2022 Company, Inc</p>
+    </footer>
+    </div>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
+  <script type="text/javascript">
+  $(document).ready(function() {
+      $('.add-to-cart').click(function() {
+          var button = $(this);
+          var productElement = $(this).closest('.product');
+          var image = productElement.find('.imgpath').text();
+          var title = productElement.find('.product-title').text();
+          var price = productElement.find('.product-price').text();
+
+          $.ajax({
+              url: 'cart/', // PHP script to handle the request
+              type: 'POST',
+              data: {
+                  image: image,
+                  title: title,
+                  price: price
+              },
+              success: function(response) {
+                  // Handle success
+                  console.log('Product added to cart:', response);
+                  button.text('+ Order Added');
+                  button.prop('disabled', true);
+                  button.addClass('added-to-cart');
+
+                  // Increment the value inside the span
+                  var spanElement = $('.badge');
+                  var currentValue = parseInt(spanElement.text().trim());
+                  spanElement.text(currentValue + 1);
+              },
+              error: function(xhr, status, error) {
+                  // Handle error
+                  console.error('Error adding product to cart:', status, error);
+              }
+          });
+      });
+
+
+      $.ajax({
+              url: "f_file_log/",
+              type: "GET",
+              dataType: "json",
+              success: function(t) {
+                  var cnt = t.count;
+                  $('#log-count').text(cnt);
+              },
+              error: function(xhr, status, error) {
+                  // Handle error
+                  console.error('Error adding product to cart:', status, error);
+              }
+          });
+  });
+  </script>
+</html>
